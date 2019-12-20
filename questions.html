@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Questions</title>
+    <!-- link to bootstrap framework-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<style>
+    
+  .choiceBtn {
+        background-color: blueviolet;   
+        border:none;
+        margin:5px;
+        color:white;
+    }
+
+    .question {
+        font-weight: bold;
+        font-size: large;
+    }
+
+    #choices-list{
+        border : 2px solid green;
+        background: yellow;
+    }
+
+</style>
+</head>
+<body>  
+      <!-- navigation start-->
+      <div class="d-flex justify-content-between mb-3">
+        <div class="p-2">View Highscores</div>
+    
+        <div class="p-2">Timer :
+            <span id="timer-value">0</span>
+        </div>
+    </div>
+    <!-- navigation ends-->
+
+    <div class="container m-0 p-0 bg-white m-5">
+        <p class="question"></p>
+        <ul id="choices-list"></ul>
+        <hr>
+        <p id = "answer"></p>
+    </div>
+
+
+
+    <script src ="assets/js/questions.js"></script>
+
+
+</body>
+</html>
