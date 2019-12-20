@@ -9,8 +9,8 @@
       <!-- Link to Bootstrap framework-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="script.js"></script>
-    <script src="questions.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/questions.js"></script>
 </head>
 <body>
     <div class="container-fluid m-0 p-0 bg-white ">
@@ -22,22 +22,24 @@
         </div>
 
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12 text-center p-3">
                 <h1>Coding Quiz Challenge</h1>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12 text-center p-3">
                 <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scores/time by ten seconds.</p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12 text-center">
-                <button class="bg-primary">Start Quiz</button>
+                <form action="questions.html">
+                    <button class="bg-primary">Start Quiz</button>
+                </form>
             </div>
         </div>
-    
+    </div>
 </body>
 </html>
