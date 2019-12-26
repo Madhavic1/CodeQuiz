@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +8,33 @@
     <title>Questions</title>
     <!-- link to bootstrap framework-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<style>
-    
-  .choiceBtn {
-        background-color: blueviolet;   
-        border:none;
-        margin:5px;
-        color:white;
-    }
+    <style>
+        .choiceBtn {
+            background-color: blueviolet;
+            border: none;
+            margin: 5px;
+            color: white;
+        }
 
-    .question {
-        font-weight: bold;
-        font-size: large;
-    }
+        .question {
+            font-weight: bold;
+            font-size: large;
+        }
 
-    #choices-list{
-        border : 2px solid green;
-        background: yellow;
-    }
-
-</style>
+        #choices-list {
+            border: 2px solid green;
+            background: yellow;
+        }
+    </style>
 </head>
-<body onload="displayOneQuestions()">  
-      <!-- navigation start-->
-      <div class="d-flex justify-content-between mb-3">
+
+<body onload="displayOneQuestions()">
+    <!-- navigation start-->
+    <div class="d-flex justify-content-between mb-3">
         <div class="p-2">
-            <a href="HighScores.html">View Highscores</a href="#">    
+            <a href="HighScores.html">View Highscores</a href="#">
         </div>
-    
+
         <div class="p-2">Timer :
             <span id="timer-value">0</span>
         </div>
@@ -45,13 +45,14 @@
         <p class="question"></p>
         <ul id="choices-list"></ul>
         <hr>
-        <p id = "answer"></p>
+        <p id="answer"></p>
     </div>
 
 
 
-    <script src ="assets/js/questions.js"></script>
+    <script src="assets/js/questions.js"></script>
 
 
 </body>
+
 </html>

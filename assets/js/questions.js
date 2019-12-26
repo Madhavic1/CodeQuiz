@@ -3,7 +3,7 @@ var choicesListEl = document.querySelector("#choices-list");
 var answerEl = document.querySelector("#answer");
 var timeSpanEl = document.querySelector("#timer-value");
 var index=0;
-var allDone = false;
+//var allDone = false;
 var answer_result;
 var questions = [
     {
@@ -79,11 +79,11 @@ function displayOneQuestions() {
 
     if(event.target.matches("button"))
     {
-     alert("button clicked    --->"+event.target.textContent);
-     alert("real answer -->"+questions[index].answer);
+    //  alert("button clicked    --->"+event.target.textContent);
+    //  alert("real answer -->"+questions[index].answer);
       if(event.target.textContent === questions[index].answer )
       {
-       alert("real answer ~~~~~~~ "+questions[index].answer);
+      //  alert("real answer ~~~~~~~ "+questions[index].answer);
          console.log("correct");
          result = true;
          //answerEl.textContent="answer : correct";
@@ -99,7 +99,7 @@ function displayOneQuestions() {
     if(result)
       answer_result = "correct" ; 
     else answer_result = "wrong" ;
-alert("answer_result returnes "+answer_result);
+// alert("answer_result returnes "+answer_result);
     return answer_result;
   }
 
@@ -127,7 +127,7 @@ function showNextQuestion(event) {
   //alert("Your answer is "+correct_or_worng);
   if(correct_or_worng === "wrong")
   {
-    alert("if");
+    // alert("if");
     //reduce the timer by 10seconds
     timer_value-=10;
   }
@@ -137,10 +137,12 @@ function showNextQuestion(event) {
   if (index < array_length)
     displayOneQuestions();
   else {
-    alert("All done");
-    alert("remainig time "+ timer_value);
-    allDone = true;
-  }
+
+        //storing the Final score in local storage to use it in All done page
+        localStorage.setItem("final_score",timer_value);
+        window.open("./All-Done.html","_self",false);
+      
+      }
 
 }
 
