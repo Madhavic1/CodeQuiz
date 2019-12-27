@@ -1,5 +1,6 @@
 var goBackBtnEl = document.querySelector("#go-back");
 var clearHighScoresBtnEl = document.querySelector("#clear-highscores");
+var choicesListEl = document.querySelector("#show-scores");
 var data = JSON.parse(localStorage.getItem("list"));
 var data_values = [];
 
@@ -41,7 +42,12 @@ console.log("*****************************************************************")
 
     for (let i = 0; i < data_values.length; i++) {
         console.log("data_values[" + i + "] = " + data_values[i].initial + " scored " + data_values[i].finalScore);
+        var li = document.createElement("li");
+        li.textContent = data_values[i].initial+"\-"+data_values[i].finalScore;
+        choicesListEl.appendChild(li);
     }
+
+
 
 }
 
