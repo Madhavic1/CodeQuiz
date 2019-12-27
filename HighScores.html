@@ -6,17 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HighScores</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
+<style>
+    .scores-list{
+        background:lightskyblue;
+    }
+</style>
 </head>
 <body>
     <h1 class="text-center mb-4">HighScores</h1>
 
     <div class="container">
-        <div class="row bg-secondary mb-3 p-0">
+        <div class="row  mb-3 p-0 scores-list">
             <div class="col-12">
-                <ul>
-                    <li>First Item </li>
-                </ul>
+                <ol id="show-scores">
+                </ol>
             </div>
         </div>
 
