@@ -2,7 +2,7 @@ var finalScoreEl = document.querySelector("#final-score");
 var allDoneSubmitEl = document.getElementById("all-done-submit");
 var intialsEl = document.querySelector("#initials");
 var scoreDetails = [];
-
+var data_values = [];
 
 console.log("#all-done-submit " + allDoneSubmitEl);
 console.log("finalScoreEl" + finalScoreEl);
@@ -40,22 +40,24 @@ function openHighScores(event) {
     }
 
     else {
-        var data_values = [];
+        
         data_values = Object.values(data);
         console.log("already stored data from storage " + data_values + " length " + data_values.length);
         data_values.push(details);
         console.log("edited array length " + data_values.length);
         localStorage.setItem("list", JSON.stringify(data_values));
-
-
-
     }
 
-    console.log("lastUser--->after if block " + JSON.parse(localStorage.getItem("list")));
+    for(let i=0;i<data_values.length;i++)
+    {
+        console.log("data_values["+i+"] = "+data_values[i].initial+" scored "+data_values[i].finalScore);
+        
+    }
+   // console.log("lastUser--->after if block " + JSON.parse(localStorage.getItem("list")));
+  
 
 
-
-    // window.open("./HighScores.html","_self",false);
+    window.open("./HighScores.html","_self",false);
 }
 
 allDoneSubmitEl.addEventListener("click", openHighScores);
