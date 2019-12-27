@@ -2,9 +2,11 @@ var finalScoreEl = document.querySelector("#final-score");
 var allDoneSubmitEl = document.getElementById("all-done-submit");
 var intialsEl = document.querySelector("#initials");
 var scoreDetails = [];
-console.log("#all-done-submit "+allDoneSubmitEl);
-console.log("finalScoreEl"+finalScoreEl);
-console.log("intialsEl "+intialsEl);
+
+
+console.log("#all-done-submit " + allDoneSubmitEl);
+console.log("finalScoreEl" + finalScoreEl);
+console.log("intialsEl " + intialsEl);
 
 
 
@@ -14,28 +16,46 @@ var score_stored = localStorage.getItem("final_score");
 // alert("local storage "+score_stored);
 finalScoreEl.textContent = score_stored;
 
-function openHighScores(event)
-{
+function openHighScores(event) {
     event.preventDefault();
-    alert(" open ");
-    alert(" final score "+ finalScoreEl.textContent);
+
     // creating an object with intials and final scores.
     var intial_enetered = intialsEl.value;
-    alert("intial_enetered "+intial_enetered);
     var final_score = finalScoreEl.textContent;
-    let details  = { 
-                    "initial" : intial_enetered,
-                    "final-score" : final_score
-                    };
-    
-    scoreDetails.push(details);
-    localStorage.setItem("InitialScoreList",JSON.stringify(details));
-
-    console.log(JSON.parse(localStorage.getItem("InitialScoreList")));
-    
+    let details = {
+        id: Date.now(),
+        initial: intial_enetered,
+        finalScore: final_score
+    };
 
 
-    window.open("./HighScores.html","_self",false);
+    var data = JSON.parse(localStorage.getItem("list"));
+    console.log("type of scoreDetails " + scoreDetails.length);
+    console.log(" data " + data + " has length of " + data);
+    if (data === null) {
+        console.log(" if  NULL");
+
+
+        localStorage.setItem("list", JSON.stringify(scoreDetails));
+    }
+
+    else {
+        var data_values = [];
+        data_values = Object.values(data);
+        console.log("already stored data from storage " + data_values + " length " + data_values.length);
+        data_values.push(details);
+        console.log("edited array length " + data_values.length);
+        localStorage.setItem("list", JSON.stringify(data_values));
+
+
+
+    }
+
+    console.log("lastUser--->after if block " + JSON.parse(localStorage.getItem("list")));
+
+
+
+    // window.open("./HighScores.html","_self",false);
 }
 
-allDoneSubmitEl.addEventListener("click",openHighScores);
+allDoneSubmitEl.addEventListener("click", openHighScores);
