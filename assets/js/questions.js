@@ -117,26 +117,28 @@ function showNextQuestion(event) {
     // alert("button is clicked ");
     correct_or_worng = verifyAnswer(event);
 
-
-    // else{
-    //   alert("its not a button ");
-    // }
-
-    //alert("Your answer is "+correct_or_worng);
     if (correct_or_worng === "wrong") {
 
-      //reduce the timer by 10seconds
-      timer_value -= 10;
+      //reduce the timer by 15seconds
+      if (timer_value >= 15) {
+        // alert("timer_value  in if" + timer_value);
+        timer_value -= 15;
+      }
+      else {
+        // alert("timer_value  in else" + timer_value);
+        timer_value = 0;
+        endTheQuiz();
+      }
     }
     index++;
 
     if (index < array_length)
       displayOneQuestions();
     else {
+      console.log("index in else block = " + index);
 
       //storing the Final score in local storage to use it in All done page
-      localStorage.setItem("final_score", timer_value);
-      window.open("./All-Done.html", "_self", false);
+      endTheQuiz();
 
     }
 
@@ -147,6 +149,16 @@ function showNextQuestion(event) {
 
 }
 
+//The below function sets the timer to zero and redirects the page to All-Done.html 
+function endTheQuiz()
+{
+  // alert("in endTheQuiz ");
+  localStorage.setItem("final_score", timer_value);
+  window.open("./All-Done.html", "_self", false);
+
+}
+
+
 
 //setTimer() sets the timer value to (array length * 15 secs) and counts down till it reaches 0
 
@@ -154,8 +166,12 @@ function setTimer() {
   var timerInterval = setInterval(function () {
     timer_value--;
     timeSpanEl.textContent = timer_value;
-    if (timer_value === 0)
+    if (timer_value === 0){
+      // alert("timer = 0 ");
       clearInterval(timerInterval);
+      window.open("./All-Done.html", "_self", false);
+    }
+      
   }, 1000);
 }
 
