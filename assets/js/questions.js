@@ -2,6 +2,9 @@ var questionEl = document.querySelector(".question");
 var choicesListEl = document.querySelector("#choices-list");
 var answerEl = document.querySelector("#answer");
 var timeSpanEl = document.querySelector("#timer-value");
+
+ var correctSoundEl = document.getElementById("sound");
+ var correct_or_wrong;
 var index = 0;
 //var allDone = false;
 var answer_result;
@@ -54,7 +57,7 @@ function displayOneQuestions() {
   var title = questions[index].title;
 
   questionEl.textContent = title;
-
+// alert("in displayQuestion function "+correct_or_wrong);
   if (index > 0) {
     deleteAllChildNodes();
   }
@@ -72,21 +75,26 @@ function displayOneQuestions() {
 function verifyAnswer(event) {
   event.preventDefault();
   var result = false;
-
+//  alert("verifyAnswer");
   // on clicking one answer choice button , this function should validate whether the answer is correct ot not and displays it at the bottom of choices. 
   //then the next question should be displayed along with the answer choices.
-
-
-  // alert("button clicked    --->" + event.target.textContent);
-  //  alert("real answer -->"+questions[index].answer);
+  console.log("correct");
   if (event.target.textContent === questions[index].answer) {
-    //  alert("real answer ~~~~~~~ "+questions[index].answer);
-    console.log("correct");
+     console.log("correct");
+      // alert("correct");
+    
+    correctSoundEl.play();
+
     result = true;
-    //answerEl.textContent="answer : correct";
   }
   else {
+ 
+   // wrongSoundEl.play();
+  //  correctAudioEl.play();
+  correctSoundEl.play();
+   result = false;
     console.log("wrong");
+        // alert("wrong");
     // answerEl.textContent="answer : wrong";
   }
 
@@ -109,15 +117,21 @@ function deleteAllChildNodes() {
 
 }
 
+function displayTheResult()
+{
+  answerEl.textContent="answer : "+correct_or_wrong;
+  setTimeout(function(){answerEl.textContent = "";},500);
+}
+
 function showNextQuestion(event) {
-
+// alert("entered showNextQuestion");
   event.preventDefault();
-  var correct_or_worng;
-  if (event.target.matches("button")) {
-    // alert("button is clicked ");
-    correct_or_worng = verifyAnswer(event);
 
-    if (correct_or_worng === "wrong") {
+  if (event.target.matches("button")) {
+    //  alert("button is clicked ");
+    correct_or_wrong = verifyAnswer(event);
+    // alert("correct_or_wrong == "+correct_or_wrong);
+    if (correct_or_wrong === "wrong") {
 
       //reduce the timer by 15seconds
       if (timer_value >= 15) {
@@ -126,17 +140,20 @@ function showNextQuestion(event) {
       }
       else {
         // alert("timer_value  in else" + timer_value);
-        timer_value = 0;
-        endTheQuiz();
+        //timer_value = 0;
+       endTheQuiz();
       }
     }
     index++;
 
-    if (index < array_length)
+    if (index < array_length){
       displayOneQuestions();
+      displayTheResult();
+    }
     else {
+      //  alert(" last one index = "+index);
       console.log("index in else block = " + index);
-
+      displayTheResult();
       //storing the Final score in local storage to use it in All done page
       endTheQuiz();
 
@@ -152,6 +169,7 @@ function showNextQuestion(event) {
 //The below function sets the timer to zero and redirects the page to All-Done.html 
 function endTheQuiz()
 {
+  // correctAudioEl.play();
   // alert("in endTheQuiz ");
   localStorage.setItem("final_score", timer_value);
   window.open("./All-Done.html", "_self", false);
