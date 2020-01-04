@@ -14,6 +14,8 @@
       body {
             background: url(houndstooth-pattern.GIF);
             }
+
+
   </style>
 </head>
 <body>
@@ -42,10 +44,24 @@
         <div class="row">
             <div class="col-12 text-center">
                 <form action="questions.html">
-                    <button class="bg-primary">Start Quiz</button>
+                    <button class="bg-primary text-white" id="quiz1" onclick="startQuiz('q1')">Start Quiz1</button>
+
+                    <button class="bg-primary text-white" id="quiz2" onclick="startQuiz('q2')">Start Quiz2</button>
+
+                    <button class="bg-primary text-white" id="quiz3" onclick="startQuiz('q3')">Start Quiz3</button>
+                   
+                    
                 </form>
             </div>
         </div>
+
+       
     </div>
+<script>
+function startQuiz(q){
+    alert("start quiz1");
+    localStorage.setItem("quizValue",q);
+}
+</script>
 </body>
 </html>
