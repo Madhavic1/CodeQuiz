@@ -192,15 +192,15 @@ function showNextQuestion(event) {
     if (correct_or_wrong === "wrong") {
 
       //reduce the timer by 15seconds
-      if (timer_value >= 15) {
-        // alert("timer_value  in if" + timer_value);
+      // if (timer_value >= 15) {
+      //   // alert("timer_value  in if" + timer_value);
         timer_value -= 15;
-      }
-      else {
-        // alert("timer_value  in else" + timer_value);
-        //timer_value = 0;
-        endTheQuiz();
-      }
+      // }
+      // else {
+      //   // alert("timer_value  in else" + timer_value);
+      //   //timer_value = 0;
+      //   endTheQuiz();
+      // }
     }
     index++;
 
@@ -212,8 +212,14 @@ function showNextQuestion(event) {
       //  alert(" last one index = "+index);
       console.log("index in else block = " + index);
       displayTheResult();
-      //storing the Final score in local storage to use it in All done page
-      endTheQuiz();
+     
+      //to give a little time out for playing the sound effect for the last question
+      setTimeout(
+        function(){
+         //storing the Final score in local storage to use it in All done page
+         endTheQuiz();
+      },500);
+     // endTheQuiz();
 
     }
 
