@@ -3,6 +3,7 @@ var allDoneSubmitEl = document.getElementById("all-done-submit");
 var intialsEl = document.querySelector("#initials");
 var scoreDetails = [];
 var data_values = [];
+var timeSpanEl = document.querySelector("#timer-value");
 
 console.log("#all-done-submit " + allDoneSubmitEl);
 console.log("finalScoreEl" + finalScoreEl);
@@ -15,6 +16,9 @@ console.log("intialsEl " + intialsEl);
 var score_stored = localStorage.getItem("final_score");
 // alert("local storage "+score_stored);
 finalScoreEl.textContent = score_stored;
+//assigning the stored final score to Timer value
+timeSpanEl.textContent = score_stored;
+
 
 function openHighScores(event) {
     event.preventDefault();
@@ -35,7 +39,7 @@ function openHighScores(event) {
     if (data === null) {
         console.log(" if  NULL");
 
-
+        scoreDetails.push(details);
         localStorage.setItem("list", JSON.stringify(scoreDetails));
     }
 
