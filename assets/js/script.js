@@ -22,9 +22,16 @@ timeSpanEl.textContent = score_stored;
 
 function openHighScores(event) {
     event.preventDefault();
-
+// alert("clicked");
     // creating an object with intials and final scores.
-    var intial_enetered = intialsEl.value;
+    var intial_enetered = intialsEl.value.trim();
+    // alert("initial entered "+intial_enetered);
+    if(intial_enetered.length === 0) 
+    {
+        alert("Please enter initial and Submit!!");
+        intialsEl.value="";
+        return;
+    }
     var final_score = finalScoreEl.textContent;
     let details = {
         id: Date.now(),
