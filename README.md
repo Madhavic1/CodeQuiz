@@ -1,6 +1,7 @@
 # CodeQuiz
 A timer-based quiz application that stores high scores client-side.
 ## table of contents
+  * Link to the Deployed Project
   * Introduction / General Information
   * Languages used
   * Installation
@@ -9,6 +10,8 @@ A timer-based quiz application that stores high scores client-side.
   * Usage
   * Sources to read
   
+  ### Link to the Deployed Project:
+    https://madhavic1.github.io/CodeQuiz/
 
   ### Introducion (Aim of the project) / General Information:
     The main aim of this project is to build an application that stores high scores on client-side. As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment.This application has multiple quizzes and an option for users to choose between them. These assessments are typically a combination of multiple-choice questions and interactive challenges.It is an application which is responsive, ensuring that it adapts to multiple screen sizes. And also, this application alerts the user of correct or incorrect answers by giving 2 different audio cues.
