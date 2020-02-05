@@ -11,6 +11,7 @@ A timer-based quiz application that stores high scores client-side.
   * Sources to read
   
   ### Link to the Deployed Project:
+
     https://madhavic1.github.io/CodeQuiz/
 
   ### Introducion (Aim of the project) / General Information:
